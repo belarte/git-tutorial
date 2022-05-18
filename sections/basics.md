@@ -164,3 +164,52 @@ git show HEAD     # Similar to previous example
 git show HEAD~1   # Show second to last commit, the number can be changed to show previous commits
 git show <hash>   # Show given commit
 ```
+
+## How did we get here?
+
+As an example, let us take a look at which Git commands have been run from the creation of the repository to
+this exact moment! The repository is hosted on GitHub, so the UI was used for its creation. From there, all
+Git commands have been run on the command line, using only commands presented in this very page.
+
+```shell
+git clone git@github.com:belarte/git-tutorial.git
+cd git-tutorial
+git status
+git add .gitignore
+git commit -m "Add gitignore and ignore .idea folder"
+git config user.email bruno.belarte@gmail.com                       # Author was not configured correctly
+git commit --amend --reset-author                                   # So amending previous commit was necessary
+git log
+git status
+git commit -am "Add introduction section and check-list for next steps"
+git log
+git push
+git diff
+git status
+git add sections/basics.md
+git add -u
+git status
+git commit -m "Add basics section and start filling with clone and pull"
+git push
+git status
+git diff
+git commit -am "Add section for committing modifications"
+git status
+git push
+git status
+git diff
+git log
+git diff sections/basics.md
+git diff
+git add -p
+git diff --cached
+git diff
+git commit -m "Push and diff sections"
+git push
+git add -p
+git commit -m "Add log and status section"
+git push
+```
+
+We can see that a lot of time, I run commands to check the current status or the history, be that when I want
+to commit or when I come back to the computer after a while.
