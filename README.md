@@ -13,12 +13,12 @@ branches management (creating and merging) or rebasing to rewrite history.
 
 The following check-list presents the things already covered and what will come next:
 
-- [ ] [Basic usage](sections/basics.md)
+- [x] [Basic usage](sections/basics.md)
     - [x] Clone
     - [x] Pull
-    - [ ] Commit
-    - [ ] Push
-    - [ ] Diffs
+    - [x] Commit
+    - [x] Push
+    - [x] Diffs
 - [ ] Managing branches
     - [ ] Cherry-picking
     - [ ] Merging

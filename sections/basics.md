@@ -3,6 +3,8 @@
 In this section, we will learn about the basic Git commands. These are all that is necessary for
 a simple workflow on a single branch, such as *trunk base development*. 
 
+The following assumes the existence of a remote repository.
+
 ## Clone a repository
 
 The first step to work on a Git repository is to `clone` it. This simple command takes the address
@@ -109,4 +111,47 @@ git commit --amend                # Add staged modifications to previous commit,
 git commit -a --amend             # Modify previous commit with all modifications to all tracked files, prompting for a commit message
 git commit -a --amend --no-edit   # Modify previous commit with all modifications to all tracked files, reuse previous commit message
 git commit --amend --reset-author # Update the author's name and email address of the last commit
+```
+
+## Push your local changes to a remote repository
+
+Once you have one or more local commits, you can `push` them to a remote. By default, it will push the current
+branch to the default remote, *e.g.* if you are on the main branch with the default remote, it will
+push `main` to `origin`. You can specify which branch you want to push to which remote explicitly.
+
+```shell
+git push                    # Push current branch to default remote
+git push <remote> <branch>  # Push given branch to given remote
+```
+
+## View diffs and previous commits
+
+So far we talked about making modifications and communicating modifications to a remote. But what about viewing
+those modifications before or after commit? Git has a couple of useful command to help us view differences,
+`diff` and `show`.
+
+The `diff` command allows you to view the difference between two point in time. The most simple and common usage
+is with no parameters at all, this will show you current local modifications that have not been staged or
+committed yet. This is particularly useful to double-check your work when preparing a commit.
+Using the `--cached` option you can see what has been staged already. You can also specify which files you
+are interested in, or from and to which commits you want to see the diff.
+
+```shell
+git diff              # Show unstaged local modifications
+git diff <files>      # Show unstaged local of given files
+git diff --cached     # Show staged modifications
+git diff <commit>     # Show diff between given commit and HEAD
+git diff <from> <to>  # Show diff between two commits
+git diff <branch>     # Show diff between current and given branch
+```
+
+The `show` command lets you inspect existing commits. Used without parameters it shows you the last commit.
+You can specify the commit you want to show, using for instance its hash or a label (such as `HEAD` in the
+following).
+
+```shell
+git show          # Show latest commit
+git show HEAD     # Similar to previous example
+git show HEAD~1   # Show second to last commit, the number can be changed to show previous commits
+git show <hash>   # Show given commit
 ```
