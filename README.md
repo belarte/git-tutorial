@@ -14,14 +14,20 @@ branches management (creating and merging) or rebasing to rewrite history.
 The following check-list presents the things already covered and what will come next:
 
 - [x] [Basic usage](sections/basics.md)
-    - [x] Clone
-    - [x] Pull
-    - [x] Commit
-    - [x] Push
-    - [x] Diffs
+  - [x] Clone
+  - [x] Pull
+  - [x] Commit
+  - [x] Push
+  - [x] Diffs
+- [ ] [Repository configuration](sections/configuration.md)
+  - [x] Creating a repository
+  - [ ] Configuration files
+  - [ ] Aliases
 - [ ] Managing branches
-    - [ ] Cherry-picking
-    - [ ] Merging
+  - [ ] What is a branch?
+  - [ ] Creating branches
+  - [ ] Cherry-picking
+  - [ ] Merging
 - [ ] Rewriting history
   - [ ] Undoing local changes 
   - [ ] Rebasing
