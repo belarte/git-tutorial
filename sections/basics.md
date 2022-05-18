@@ -127,8 +127,17 @@ git push <remote> <branch>  # Push given branch to given remote
 ## View diffs and previous commits
 
 So far we talked about making modifications and communicating modifications to a remote. But what about viewing
-those modifications before or after commit? Git has a couple of useful command to help us view differences,
-`diff` and `show`.
+those modifications before or after commit? Git has a few useful commands to help us view differences: `status`,
+`log`, `diff` and `show`.
+
+The `status` command simply shows you the list of files that have been modified since last commit. It separates
+staged and unstaged files, so you can easily spot what is about to be committed. It also lists untracked files
+and folders.
+
+The `log` command shows the list of commits in reverse order, so you can see the most recent first. It shows a
+large variety of information including commit message, hash, author's name and email.
+By default, it is quite verbose, so you can tweak it with a few options, for instance `--oneline` shorten the
+information to a single line or `--graph` shows you a graph of the branches involved in the latest history.
 
 The `diff` command allows you to view the difference between two point in time. The most simple and common usage
 is with no parameters at all, this will show you current local modifications that have not been staged or
