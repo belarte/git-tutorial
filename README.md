@@ -19,10 +19,9 @@ The following check-list presents the things already covered and what will come 
   - [x] Commit
   - [x] Push
   - [x] Diffs
-- [ ] [Repository configuration](sections/configuration.md)
+- [x] [Repository configuration](sections/configuration.md)
   - [x] Creating a repository
-  - [ ] Configuration files
-  - [ ] Aliases
+  - [x] Configuration files
 - [ ] Managing branches
   - [ ] What is a branch?
   - [ ] Creating branches
