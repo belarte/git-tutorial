@@ -40,6 +40,11 @@ git stash                       # Stash uncommitted changes
 git stash pop                   # Pop previously stashed changes
 ```
 
+In fact, `pull` is actually the combination of two commands. The first one is `fetch`, which will bring
+the latest changes from remote (all commits, branches and tags) but it will not change anything locally.
+The second command will be either `merge` or `rebase`, depending on the strategy selected, which will then
+update your local copy with the latest remote changes.
+
 ## Commit your work locally
 
 To save your work and create a local history, you mainly need two commands: `add` and `commit`.
