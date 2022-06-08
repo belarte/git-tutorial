@@ -22,8 +22,8 @@ The following check-list presents the things already covered and what will come 
 - [x] [Repository configuration](sections/configuration.md)
   - [x] Creating a repository
   - [x] Configuration files
-- [ ] Managing branches
-  - [ ] What is a branch?
+- [ ] [Managing branches](sections/branching.md)
+  - [x] What is a branch?
   - [ ] Creating branches
   - [ ] Cherry-picking
   - [ ] Merging
