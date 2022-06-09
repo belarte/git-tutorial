@@ -47,3 +47,19 @@ something very bad happen during a merge.
 ## Cherry-picking
 
 ## Merging
+
+## How did we get here?
+
+Let's take a quick look at the command that were run to produce this section. To avoid cluttering the listings, I
+omitted all commands related to logging and viewing differences.
+
+The first listing describes commits done on main before any branches or tags were introduced.
+
+```shell
+git add -p
+git add sections/branching.md
+git commit -m "Describe what is a reference"
+git push
+git commit -m "Add 'how did we get here' section in branching" sections/branching.md
+git push
+```
