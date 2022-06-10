@@ -44,6 +44,41 @@ something very bad happen during a merge.
 
 ## Creating a branch
 
+Let's take a look at how to create tags and branches, stating with the former.
+
+### Working with tags
+
+As mentioned in the previous section, a tag is immutable. Once created it will always point to the same commit. For
+this reason, they are mostly used to keep track of the state of the repository at a given point in time. For instance,
+it can be quite useful to tag releases.
+
+The `tag` command is used for most operations related to tags, starting by listing them. With no options or arguments
+the command will list all existing tags.
+
+There are two types of tags: `annotated tags` and `lightweight tags`. Annotated tags are created with a tagging message
+and will store some information, including the date and the identity of the author. Lightweight tags will only store the
+hash of the commit it refers to and nothing else.
+
+Tags can be created retrospectively, you do not need to be at the commit you want to tag. Doing so only requires a
+commit hash or another reference when creating the tag.
+
+The tag command will create local tags. To share them with a remote, you will need to `push` them. After it has been
+pushed, anyone who pulls from the repository will have access to the new tags. Tags deletion works in a similar fashion.
+You need to delete tags locally and remotely with separate commands.
+
+```shell
+git tag                                       # List existing tags
+git tag -l "<regex>"                          # List existing tags matching the given regular expression
+git tag -a <name> -m <message>                # Create an annotated tag at the current position with the given message
+git tag -a <name>                             # Create an annotated tag at the current position, will prompt for a message
+git tag -a <name> -m <message> <hash or ref>  # Create an annotated tag at the given position with the given message
+git tag <name>                                # Create a lightweight tag with the given name
+git push <remote> <name>                      # Push the given tag to the given remote
+git push <remote> --tags                      # Push all tags to the given remote
+git tag -d <name>                             # Delete a local tag
+git push <remote> --delete <name>             # Delete a remote tag 
+```
+
 ## Cherry-picking
 
 ## Merging
@@ -62,4 +97,13 @@ git commit -m "Describe what is a reference"
 git push
 git commit -m "Add 'how did we get here' section in branching" sections/branching.md
 git push
+```
+
+The second listing describes how to create a tag, a branch and do a fast-forward merge.
+
+```shell
+git tag -a start-branching -m "Starting point for the exercises related to branching and merging"
+git switch -c create-branches
+git push origin start-branching
+git commit -am "Section on tags"
 ```
