@@ -48,3 +48,5 @@ community but are far from optimal in the context of a Team working closely toge
 
 We will also not cover vendor specific things, such as GitHub or GitLab, or integration with IDEs.
 Though GitHub is widely used (as demonstrated with this project), we might cover it at a later stage.
+
+This line is not important.
