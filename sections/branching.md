@@ -159,4 +159,9 @@ git commit -am "Section on tags"
 git push --set-upstream origin create-branches
 git commit -am "Section on creating/deleting branches"
 git push
+git commit -am "Update listing"
+git push
+git switch main
+git merge create-branches
+git push
 ```
