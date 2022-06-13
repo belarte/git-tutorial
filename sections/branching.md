@@ -187,4 +187,9 @@ git push --set-upstream origin cherry-picking
 git commit -am "Section on cherry-picking"
 git commit -am "Another useless commit"
 git push 
+git switch main
+git cherry-pick 957d875
+git add -u                  # After solving the conflict
+git cherry-pick --continue  # To mark the conflict as solved
+git push
 ```
