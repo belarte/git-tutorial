@@ -46,6 +46,17 @@ something very bad happen during a merge.
 
 ## Cherry-picking
 
+Cherry-picking is a simple way of moving commits across branches. They are mostly useful in simple use cases such as
+hot fixes or bringing back to main the subset of a prototype branch.
+
+The `cherry-pick` command is used with a single argument, the hash of the picked commit. The commit will be taken 
+*as-is* and applied at the top of the current branch, but will generate a new commit hash that uniquely identifies this
+new commit. As with every command that move commit across branches, cherry-pick can lead to merge conflicts.
+
+```shell
+git cherry-pick <hash>
+```
+
 ## Merging
 
 ## How did we get here?
@@ -62,4 +73,16 @@ git commit -m "Describe what is a reference"
 git push
 git commit -m "Add 'how did we get here' section in branching" sections/branching.md
 git push
+```
+
+The third listing describes how to cherry-pick from another branch.
+
+```shell
+git switch -c cherry-picking start-branching
+git commit -am "Useless commit"
+git push
+git push --set-upstream origin cherry-picking
+git commit -am "Section on cherry-picking"
+git commit -am "Another useless commit"
+git push 
 ```
