@@ -273,7 +273,7 @@ git cherry-pick --continue  # To mark the conflict as solved
 git push
 ```
 
-The forth listing describes how to merge branches in a clean way.
+The forth listing describes how to perform a three-way merge.
 
 ```shell
 git switch -c merging-branches start-branching
@@ -281,5 +281,10 @@ git push --set-upstream origin merging-branches
 git commit -am "Section on fast-forward merge"
 git push
 git commit -am "Section on three-way merge"
+git push
+git switch main
+git merge merging-branches
+git add -u                # After solving the conflict
+git merge --continue      # To mark the conflict as solved
 git push
 ```
