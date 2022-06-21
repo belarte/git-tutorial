@@ -144,6 +144,85 @@ git cherry-pick <hash>
 
 ## Merging
 
+At first sight, merging can look quite a daunting task, but there are tools and techniques to help. 
+
+Let's first talk about different merging techniques. They can be grouped in two categories: *fast-forward* and
+*three-way* merges. Fast-forward merges are simpler and allow one to keep a linear history. Three-way merges are
+intrinsically harder to do as both branches have evolved differently and might require solving conflicts.
+
+Merging branches is done with the `merge` command. By default, it takes a branch as the argument, and will merge said
+branch to the current one. Merging is only possible if the working copy is clear, meaning there cannot be modified or
+uncommitted files. You either need to commit said changes, stash them or revert them.
+
+```shell
+git merge <branch>   # Merge given branch to with the current one
+```
+
+### Fast-forward merge
+
+A fast-forward merge is possible when the branch to merge is further in history than the destination branch. This is for
+example the case if you branch from main, do a few commits and then want to merge back to main while main has not
+changed. In that case, Git is smart enough to move the reference of the destination branch to the commit of the target
+branch. This will combine the histories of both branches into one, effectively maintaining a linear history. The commits
+will be kept untouched, as no modifications are necessary. No conflicts can happen as the branches have not diverged.
+
+If the destination branch have changed, a fast-forward merge is still possible, but requires first a `rebase`. If both
+branches have evolved from the branching point, you can first rebase the target branch onto the destination branch. This
+will in re-apply all commits from the target branch onto the destination branch, one by one in chronological order. As
+both branches have changed, conflicts might happen. Git can automatically solve simple conflicts, but not always. In
+that situation, the rebase will stop at the conflicting commit and prompts you to solve the conflict by hand before
+continuing. You will need to edit the incriminated files, mark them as *solved* (with the `add` command) and then tell
+Git to continue the rebase. Doing so will generate a new commit (as files have been modified in the process) and the
+subsequent commits will also be re-generated, as they will then be based on a different commit. During a rebase, each
+individual commit can create conflicts and will have to be solved individually. This is actually a good thing, as it is
+easier to solve multiple small conflicts than a big one.
+
+```shell
+git rebase <branch>       # Rebase given branch on top of the current branch
+git add <files>           # Once conflicts have been manually solved, you need to add incriminated files
+git rebase --continue     # Once conflicts are solved and files added, tell git to continue the rebase
+git rebase --abort        # When a conflict happens, you can abort the whole process
+```
+
+### Three-way merge
+
+Three-way merges are what happens when both branches have evolved in different directions. In such case, Git will try to
+merge the two branches into one, generating a new merge commit unifying both branches. Any subsequent commit will then
+belong to the destination branch. When merging, Git will try to solve conflicts automatically but will stop the merge
+and prompt you to solve the conflicts before continuing, similarly to what happen during a rebase.
+
+As the merging happens at once, this is often referred to as a *big-bang merge*. This is illustrated in the following
+diagram, where we can see that `some-branch` was branched at commit `1`. Then both `main` and `some-branch` evolved in
+different direction before being merged back to main after commits `5` and `7`. A new commit is generated for the merge.
+
+```mermaid
+gitGraph
+    commit id: "0"
+    commit id: "1"
+    branch some-branch
+    commit id: "2"
+    checkout main
+    commit id: "3"
+    checkout some-branch
+    commit id: "4"
+    checkout main
+    commit id: "5"
+    checkout some-branch
+    commit id: "6"
+    commit id: "7"
+    checkout main
+    merge some-branch
+```
+
+The following listing describes the most common merge commands.
+
+```shell
+git merge <branch>       # Merge given branch to the current branch
+git add <files>          # Once conflicts have been manually solved, you need to add incriminated files
+git merge --continue     # Once conflicts are solved and files added, tell git to continue the merge
+git merge --abort        # When a conflict happens, you can abort the whole process
+```
+
 ## How did we get here?
 
 Let's take a quick look at the command that were run to produce this section. To avoid cluttering the listings, I
@@ -191,5 +270,16 @@ git switch main
 git cherry-pick 957d875
 git add -u                  # After solving the conflict
 git cherry-pick --continue  # To mark the conflict as solved
+git push
+```
+
+The forth listing describes how to merge branches in a clean way.
+
+```shell
+git switch -c merging-branches start-branching
+git push --set-upstream origin merging-branches
+git commit -am "Section on fast-forward merge"
+git push
+git commit -am "Section on three-way merge"
 git push
 ```
