@@ -143,19 +143,19 @@ commit `3` is cherry-picked from the second branch and applied to `main`.
 
 ```mermaid
 gitGraph
-    commit id: "0"
-    commit id: "1"
-    branch some-branch
-    commit id: "2"
-    commit id: "3"
-    checkout main
-    commit id: "4"
-    checkout some-branch
-    commit id: "5"
-    checkout main
-    commit id: "6"
-    cherry-pick id: "3"
-    commit id: "7"
+commit id: "0"
+commit id: "1"
+branch some-branch
+commit id: "2"
+commit id: "3"
+checkout main
+commit id: "4"
+checkout some-branch
+commit id: "5"
+checkout main
+commit id: "6"
+cherry-pick id: "3"
+commit id: "7"
 ```
 
 The following listing describes how to use the `cherry-pick` command.
