@@ -138,6 +138,28 @@ The `cherry-pick` command is used with a single argument, the hash of the picked
 *as-is* and applied at the top of the current branch, but will generate a new commit hash that uniquely identifies this
 new commit. As with every command that move commit across branches, cherry-pick can lead to merge conflicts.
 
+In the following example, a branch is created after commit `1`, then both branches evolve in different directions. Then
+commit `3` is cherry-picked from the second branch and applied to `main`.
+
+```mermaid
+gitGraph
+    commit id: "0"
+    commit id: "1"
+    branch some-branch
+    commit id: "2"
+    commit id: "3"
+    checkout main
+    commit id: "4"
+    checkout some-branch
+    commit id: "5"
+    checkout main
+    commit id: "6"
+    cherry-pick id:"3"
+    commit id: "7"
+```
+
+The following listing describes how to use the `cherry-pick` command.
+
 ```shell
 git cherry-pick <hash>
 ```
@@ -153,6 +175,8 @@ intrinsically harder to do as both branches have evolved differently and might r
 Merging branches is done with the `merge` command. By default, it takes a branch as the argument, and will merge said
 branch to the current one. Merging is only possible if the working copy is clear, meaning there cannot be modified or
 uncommitted files. You either need to commit said changes, stash them or revert them.
+
+The following listing describes how to use the `merge` command.
 
 ```shell
 git merge <branch>   # Merge given branch to with the current one
@@ -177,11 +201,45 @@ subsequent commits will also be re-generated, as they will then be based on a di
 individual commit can create conflicts and will have to be solved individually. This is actually a good thing, as it is
 easier to solve multiple small conflicts than a big one.
 
+The following listing describes how to use the `rebase` command.
+
 ```shell
 git rebase <branch>       # Rebase given branch on top of the current branch
 git add <files>           # Once conflicts have been manually solved, you need to add incriminated files
 git rebase --continue     # Once conflicts are solved and files added, tell git to continue the rebase
 git rebase --abort        # When a conflict happens, you can abort the whole process
+```
+
+In the following example we illustrate how branches are merged together. Though this situation does not illustrate a
+*fast-forward* merge, as we can see both branches are kept and a merge commit is created. This is often referred to as
+a *bow-shaped* branch. To obtain this result, we need to tell Git explicitly we do not want to *fast-forward*. This is
+done with the `--no-ff` option.
+
+```mermaid
+gitGraph
+    commit id: "0"
+    commit id: "1" tag: "branching"
+    branch some-branch
+    commit id: "2"
+    commit id: "3"
+    commit id: "4"
+    checkout main
+    merge some-branch tag: "merging"
+    commit id: "5"
+```
+
+Without the `--no-ff` options the merge will be fast-forwarded, as is illustrated in the following example. The branches
+are exactly the same as the previous example. The tags are here to help visualise which commit is the starting point and
+which is the merge commit.
+
+```mermaid
+gitGraph
+    commit id: "0"
+    commit id: "1" tag: "branching"
+    commit id: "2"
+    commit id: "3"
+    commit id: "4" tag: "merging"
+    commit id: "5"
 ```
 
 ### Three-way merge
