@@ -154,7 +154,7 @@ gitGraph
     commit id: "5"
     checkout main
     commit id: "6"
-    cherry-pick id:"3"
+    cherry-pick id: "3"
     commit id: "7"
 ```
 
