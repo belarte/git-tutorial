@@ -141,7 +141,7 @@ new commit. As with every command that move commit across branches, cherry-pick 
 In the following example, a branch is created after commit `1`, then both branches evolve in different directions. Then
 commit `3` is cherry-picked from the second branch and applied to `main`.
 
-```mermaid
+```mermaid 
 gitGraph
 commit id: "0"
 commit id: "1"
