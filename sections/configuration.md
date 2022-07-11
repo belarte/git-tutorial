@@ -35,7 +35,7 @@ git init --bare <folder>    # Create a bare repository
 ```
 
 It is possible to have created a local repository and later on add a remote you can push to. Though this
-remote would to have been created with the --bare option. These commands will update the configuration file
+remote would to have been created with the `--bare` option. These commands will update the configuration file
 listing all the branches and remotes.
 
 ```shell
@@ -111,7 +111,7 @@ Here are a few examples of how to modify the configurations, local and global.
 
 ```shell
 git config --global user.name "Firstname Lastname"  # Set user name as a global configuration
-git config global user.email "email@address.com"    # Set user email as a local configuration
+git config user.email "email@address.com"           # Set user email as a local configuration
 git config --global alias.<new alias> <command>     # How to define new global aliases
 git config --global alias.sh "show --ext-diff"      # Example of an alias as seen in the global configuration file above
 git config --global pull.rebase true                # Set rebase as the default strategy when pulling

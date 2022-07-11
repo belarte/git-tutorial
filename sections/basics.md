@@ -82,7 +82,7 @@ it simply restores a file to a previous state. We will see more of those new com
 ```shell
 git restore <files>           # Restore file to last committed version
 git restore --staged <files>  # Unstage changes
-git checkout -- <files>       # Exactly the same as 'git restore <files' but deprecated use
+git checkout -- <files>       # Exactly the same as 'git restore <files>' but deprecated use
 ```
 
 ### Committing changes
@@ -141,7 +141,7 @@ and folders.
 
 The `log` command shows the list of commits in reverse order, so you can see the most recent first. It shows a
 large variety of information including commit message, hash, author's name and email.
-By default, it is quite verbose, so you can tweak it with a few options, for instance `--oneline` shorten the
+By default, it is quite verbose, so you can tweak it with a few options, for instance `--oneline` shortens the
 information to a single line or `--graph` shows you a graph of the branches involved in the latest history.
 
 The `diff` command allows you to view the difference between two point in time. The most simple and common usage
@@ -182,8 +182,8 @@ cd git-tutorial
 git status
 git add .gitignore
 git commit -m "Add gitignore and ignore .idea folder"
-git config user.email bruno.belarte@gmail.com                       # Author was not configured correctly
-git commit --amend --reset-author                                   # So amending previous commit was necessary
+git config user.email <redacted>                          # Author was not configured correctly
+git commit --amend --reset-author                         # So amending previous commit was necessary
 git log
 git status
 git commit -am "Add introduction section and check-list for next steps"
