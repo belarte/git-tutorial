@@ -30,7 +30,7 @@ The following check-list presents the things already covered and what will come 
 - [ ] Rewriting history
   - [ ] Undoing local changes 
   - [ ] Rebasing
-- [ ] Exercises
+- [x] [Exercises](sections/exercises.md)
 - [ ] Closing notes
 
 This tutorial will also contain exercises to apply the practices presented here.
