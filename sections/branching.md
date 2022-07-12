@@ -191,7 +191,7 @@ easier to solve multiple small conflicts than a big one.
 The following listing describes how to use the `rebase` command.
 
 ```shell
-git rebase <branch>       # Rebase given branch on top of the current branch
+git rebase <branch>       # Rebase current branch on top of the given branch
 git add <files>           # Once conflicts have been manually solved, you need to add incriminated files
 git rebase --continue     # Once conflicts are solved and files added, tell git to continue the rebase
 git rebase --abort        # When a conflict happens, you can abort the whole process
