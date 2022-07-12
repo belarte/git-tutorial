@@ -24,12 +24,14 @@ The following check-list presents the things already covered and what will come 
   - [x] Configuration files
 - [ ] [Managing branches](sections/branching.md)
   - [x] What is a branch?
-  - [ ] Creating branches
-  - [ ] Cherry-picking
-  - [ ] Merging
+  - [x] Creating branches
+  - [x] Cherry-picking
+  - [x] Merging
 - [ ] Rewriting history
   - [ ] Undoing local changes 
   - [ ] Rebasing
+- [ ] Exercises
+- [ ] Closing notes
 
 This tutorial will also contain exercises to apply the practices presented here.
 Trying the exercises will require cloning the repository. But more on that later!
