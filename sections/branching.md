@@ -268,6 +268,51 @@ git merge --continue     # Once conflicts are solved and files added, tell git t
 git merge --abort        # When a conflict happens, you can abort the whole process
 ```
 
+## Solving conflicts
+
+Up to this point, we talked about conflicts and solving conflicts, but we did not talk about how to do such a thing.
+
+Unfortunately, there is not actually a golden recipe to solve conflicts. This depends on the piece of code that
+generated the conflict. It is up to you to find what to do. The main point is to figure out what changed in both
+branches and how to integrate both changes together. It might be something as simple as taking both changes one after
+the other (for instance, if both branches added a new function at the exact same location). Or it might be more involved
+(for instance if both branches modified the same loop).
+
+When executing a merge, rebase or cherry-pick, if a conflict happens Git will display a message such as the following:
+
+```text
+Auto-merging <file>
+CONFLICT (content): Merge conflict in <file>
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+It says that a conflict has been detected, Git tried to fixe it automatically but failed. It specifies the file or files
+where conflicts happened. Then, when navigating to the incriminated files, you will find something that looks like the
+following snippet: 
+
+```text
+<<<<<<< HEAD
+Changes on the current branch
+=======
+Changes on the merged branch
+>>>>>>> branch-name
+```
+
+The first block (between `<<<<<<<` and `=======`) are changes on the current branch, the second block (between `=======`
+and `>>>>>>>`) are the changes on the merged branch. These changes could be a single line or an entire function, or even
+more, it depends on what work has been done on both branches. 
+
+You will find as much such sections as there are unsolved conflicts. You need to solve all of them before marking the
+conflict as solved and continuing the merge / rebase / chery-pick. You can use `diff` and `status` to view what is left
+to solve.
+
+Here are a few tips to help minimize problems related to merge conflicts:
+
+- Try to understand what happened to each individual branch before trying to solve the conflicts
+- Try to integrate the branches as often as possible to minimize the chances of conflicts
+- Do not hesitate to abort the operation and start from scratch if you start to feel lost
+- Be sure both branches are pushed to a remote first, just in case something *really* bad happens locally when merging
+
 ## How did we get here?
 
 Let's take a quick look at the command that were run to produce this section. To avoid cluttering the listings, I

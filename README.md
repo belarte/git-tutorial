@@ -22,11 +22,12 @@ The following check-list presents the things already covered and what will come 
 - [x] [Repository configuration](sections/configuration.md)
   - [x] Creating a repository
   - [x] Configuration files
-- [ ] [Managing branches](sections/branching.md)
+- [x] [Managing branches](sections/branching.md)
   - [x] What is a branch?
   - [x] Creating branches
   - [x] Cherry-picking
   - [x] Merging
+  - [x] Solving conflicts
 - [ ] Rewriting history
   - [ ] Undoing local changes 
   - [ ] Rebasing
