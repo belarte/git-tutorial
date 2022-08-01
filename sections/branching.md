@@ -85,7 +85,8 @@ Working with branches is quite similar to working with tags. You create them loc
 to a remote, and delete them in a similar fashion.
 
 Listing branches is done with the `branch` command. This gives you the option to list local branches and view the remote
-branches they are tracking, if any.
+branches they are tracking, if any. `branch` is also used to create branches. You will need to pass it a name, and 
+an optional reference. Without reference, it will create the branch at the current commit.
 
 To work with branches, we use the `switch` command. Historically this was done with the `checkout` command, so we will
 mention it here too because many online resources still mention it. Though you should get use to using `switch` as this
@@ -98,8 +99,8 @@ currently not attached to any branch. If you commit now, the commit will not be 
 If you want to switch back to an old commit and start committing from there, you need to create a branch form this
 point.
 
-To create a branch, you need the `-c` option. This will either create a branch at the current commit, or create a branch
-at the given reference or commit. This allows you to go back in time and avoid the *detached HEAD* state.
+To create a branch with `switch`, you need the `-c` option. This will either create a branch at the current commit, or 
+create a branch at the given reference or commit. This allows you to go back in time and avoid the *detached HEAD* state.
 
 Remember that references are by default local only, you will need to push them if you want to share them. this is done
 with the `push` command, exactly as we saw for tags. Once the local branch is pushed for the first time and thus
@@ -118,9 +119,11 @@ git checkout <branch or tag>            # Idem, but also work with tag/hash. Wil
 git switch <hash> --detach              # Switch to the given hash in detached HEAD state
 git switch -                            # Switch back to previous branch
 git checkout -                          # Idem
-git switch -c <name>                    # Create a branch at the current commit
+git branch <name>                       # Create a branch at the current commit
+git switch -c <name>                    # Idem
 git checkout -b <name>                  # Idem
-git switch -c <name> <ref>              # Create a branch at the given branch/tag/commit
+git branch <name> <ref>                 # Create a branch at the given branch/tag/commit
+git switch -c <name> <ref>              # Idem
 git checkout -b <name> <ref>            # Idem
 git push --set-upstream <remote> <name> # Create a remote branch with the given name from the current HEAD
 git push -u <remote> <name>             # Short version of the previous command
