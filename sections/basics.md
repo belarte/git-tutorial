@@ -124,6 +124,9 @@ Once you have one or more local commits, you can `push` them to a remote. By def
 branch to the default remote, *e.g.* if you are on the main branch with the default remote, it will
 push `main` to `origin`. You can specify which branch you want to push to which remote explicitly.
 
+Pushing will fail if the remote branches have more recent modifications that have not been pulled. You will need to 
+pull the latest changes first, then you will be able to push.
+
 ```shell
 git push                    # Push current branch to default remote
 git push <remote> <branch>  # Push given branch to given remote
