@@ -28,9 +28,9 @@ The following check-list presents the things already covered and what will come 
   - [x] Cherry-picking
   - [x] Merging
   - [x] Solving conflicts
-- [ ] [Rewriting history](sections/history.md)
+- [x] [Rewriting history](sections/history.md)
   - [x] Undoing local changes 
-  - [ ] Rebasing
+  - [x] Rebasing
 - [x] [Exercises](sections/exercises.md)
 - [ ] Closing notes
 
