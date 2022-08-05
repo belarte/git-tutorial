@@ -29,7 +29,7 @@ The following check-list presents the things already covered and what will come 
   - [x] Merging
   - [x] Solving conflicts
 - [x] [Rewriting history](sections/history.md)
-  - [x] Undoing local changes 
+  - [x] Undoing local changes
   - [x] Rebasing
 - [x] [Exercises](sections/exercises.md)
 - [ ] Closing notes
@@ -50,4 +50,4 @@ Pull requests are meant for asynchronous code reviews, they are widely used in t
 community but are far from optimal in the context of a Team working closely together.
 
 We will also not cover vendor specific things, such as GitHub or GitLab, or integration with IDEs.
-Though GitHub is widely used (as demonstrated with this project), we might cover it at a later stage.
+Though GitHub is widely used (as demonstrated with this project), we might cover it at a later stage
