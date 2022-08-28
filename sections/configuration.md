@@ -53,20 +53,20 @@ file of the current project.
 
 ```text
 [core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-	ignorecase = true
-	precomposeunicode = true
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
 [remote "origin"]
-	url = git@github.com:belarte/git-tutorial.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@github.com:belarte/git-tutorial.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
-	remote = origin
-	merge = refs/heads/main
+    remote = origin
+    merge = refs/heads/main
 [user]
-	email = <redacted for obvious reason>
+    email = <redacted for obvious reason>
 ```
 
 The core section defines some general configurations. You can see there explicitly this repository is not
@@ -86,16 +86,16 @@ The following snippet is the global configuration file, located at `~/.gitconfig
 
 ```text
 [user]
-	name = Bruno Belarte
+    name = Bruno Belarte
 [alias]
-	st = status
-	amend = commit --amend --no-edit
-	lg = log --oneline --decorate --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(cyan)<%an>%C(reset)' --abbrev-commit
-	sh = show --ext-diff
+    st = status
+    amend = commit --amend --no-edit
+    lg = log --oneline --decorate --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(cyan)<%an>%C(reset)' --abbrev-commit
+    sh = show --ext-diff
 [pull]
-	rebase = true
+    rebase = true
 [diff]
-	external = difft --background=light --color=always
+    external = difft --background=light --color=always
 ```
 
 The user section is similar to the one in the previous file but holds different fields. The alias section defines a few

@@ -18,7 +18,7 @@ A reference is a label attached to a commit. If you think programmatically, a re
 (the hash of the commit it points to). The two main references types are `branches` and `tags`. Branches and tags are
 very similar, with one major difference: a tag is a reference attached to a single commit in history and will not
 change. A branch is a reference to the latest commit on a chain and will be updated after every commit made on said
-branch. 
+branch.
 
 There is a special reference named `HEAD` which points to the last commit of the current branch. `HEAD` can be used just
 like any other reference. It also allows you to reference previous commits. For instance:
@@ -76,7 +76,7 @@ git tag <name>                                # Create a lightweight tag with th
 git push <remote> <name>                      # Push the given tag to the given remote
 git push <remote> --tags                      # Push all tags to the given remote
 git tag -d <name>                             # Delete a local tag
-git push <remote> --delete <name>             # Delete a remote tag 
+git push <remote> --delete <name>             # Delete a remote tag
 ```
 
 ### Working with branches
@@ -85,7 +85,7 @@ Working with branches is quite similar to working with tags. You create them loc
 to a remote, and delete them in a similar fashion.
 
 Listing branches is done with the `branch` command. This gives you the option to list local branches and view the remote
-branches they are tracking, if any. `branch` is also used to create branches. You will need to pass it a name, and 
+branches they are tracking, if any. `branch` is also used to create branches. You will need to pass it a name, and
 an optional reference. Without reference, it will create the branch at the current commit.
 
 To work with branches, we use the `switch` command. Historically this was done with the `checkout` command, so we will
@@ -99,7 +99,7 @@ currently not attached to any branch. If you commit now, the commit will not be 
 If you want to switch back to an old commit and start committing from there, you need to create a branch form this
 point.
 
-To create a branch with `switch`, you need the `-c` option. This will either create a branch at the current commit, or 
+To create a branch with `switch`, you need the `-c` option. This will either create a branch at the current commit, or
 create a branch at the given reference or commit. This allows you to go back in time and avoid the *detached HEAD* state.
 
 Remember that references are by default local only, you will need to push them if you want to share them. this is done
@@ -151,7 +151,7 @@ git config --global --add --bool push.autoSetupRemote true
 Cherry-picking is a simple way of moving commits across branches. They are mostly useful in simple use cases such as
 hot fixes or bringing back to main the subset of a prototype branch.
 
-The `cherry-pick` command is used with a single argument, the hash of the picked commit. The commit will be taken 
+The `cherry-pick` command is used with a single argument, the hash of the picked commit. The commit will be taken
 *as-is* and applied at the top of the current branch, but will generate a new commit hash that uniquely identifies this
 new commit. As with every command that move commit across branches, cherry-pick can lead to merge conflicts.
 
@@ -170,7 +170,7 @@ git cherry-pick <hash>
 
 ## Merging
 
-At first sight, merging can look quite a daunting task, but there are tools and techniques to help. 
+At first sight, merging can look quite a daunting task, but there are tools and techniques to help.
 
 Let's first talk about different merging techniques. They can be grouped in two categories: *fast-forward* and
 *three-way* merges. Fast-forward merges are simpler and allow one to keep a linear history. Three-way merges are
@@ -305,7 +305,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 It says that a conflict has been detected, Git tried to fixe it automatically but failed. It specifies the file or files
 where conflicts happened. Then, when navigating to the incriminated files, you will find something that looks like the
-following snippet: 
+following snippet:
 
 ```text
 <<<<<<< HEAD
@@ -317,7 +317,7 @@ Changes on the merged branch
 
 The first block (between `<<<<<<<` and `=======`) are changes on the current branch, the second block (between `=======`
 and `>>>>>>>`) are the changes on the merged branch. These changes could be a single line or an entire function, or even
-more, it depends on what work has been done on both branches. 
+more, it depends on what work has been done on both branches.
 
 You will find as much such sections as there are unsolved conflicts. You need to solve all of them before marking the
 conflict as solved and continuing the merge / rebase / chery-pick. You can use `diff` and `status` to view what is left
@@ -372,7 +372,7 @@ git push
 git push --set-upstream origin cherry-picking
 git commit -am "Section on cherry-picking"
 git commit -am "Another useless commit"
-git push 
+git push
 git switch main
 git cherry-pick 957d875
 git add -u                  # After solving the conflict
