@@ -110,6 +110,8 @@ access the remote branch that the local branch is tracking.
 Deleting is again similar, you can delete a local branch with the `branch -d` command and delete a remote branch with
 the `push --delete` command.
 
+The following listing shows how to list and navigate between existing branches:
+
 ```shell
 git branch                              # List all local branches
 git branch -v                           # List all local branches, specifying last commit hash and message for each branch
@@ -119,11 +121,16 @@ git checkout <branch or tag>            # Idem, but also work with tag/hash. Wil
 git switch <hash> --detach              # Switch to the given hash in detached HEAD state
 git switch -                            # Switch back to previous branch
 git checkout -                          # Idem
-git branch <name>                       # Create a branch at the current commit
-git switch -c <name>                    # Idem
+```
+
+The following listing shows how to create and delete branches:
+
+```shell
+git branch <name>                       # Create a branch at the current commit, stay on the current branch
+git switch -c <name>                    # Create a branch at the current commit, switch to the new branch
 git checkout -b <name>                  # Idem
-git branch <name> <ref>                 # Create a branch at the given branch/tag/commit
-git switch -c <name> <ref>              # Idem
+git branch <name> <ref>                 # Create a branch at the given branch/tag/commit, stay on the current branch
+git switch -c <name> <ref>              # Create a branch at the given branch/tag/commit, switch to the new branch
 git checkout -b <name> <ref>            # Idem
 git push --set-upstream <remote> <name> # Create a remote branch with the given name from the current HEAD
 git push -u <remote> <name>             # Short version of the previous command
