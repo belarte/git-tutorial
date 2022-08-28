@@ -139,6 +139,13 @@ git branch -D <name>                    # Delete the local branch, force the del
 git push --delete <remote> <name>       # Delete the remote branch
 ```
 
+As of Git 2.37.0 (June 2022), there is an option to automatically set up the upstream branch when pushing for the first
+time. This can be done with the following command:
+
+```shell
+git config --global --add --bool push.autoSetupRemote true
+```
+
 ## Cherry-picking
 
 Cherry-picking is a simple way of moving commits across branches. They are mostly useful in simple use cases such as
